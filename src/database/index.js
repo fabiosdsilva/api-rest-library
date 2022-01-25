@@ -2,8 +2,17 @@ import Sequelize from "sequelize";
 import dbConfig from "../config/database";
 import User from "../models/User";
 
-const connection = new Sequelize(dbConfig);
+// My models
+const models = [User];
+class Database {
+  constructor() {
+    this.init();
+  }
 
-User.init(connection);
+  init() {
+    this.connection = new Sequelize(dbConfig);
+    models.map((model) => model.init(this.connection));
+  }
+}
 
-export default connection;
+export default new Database();
