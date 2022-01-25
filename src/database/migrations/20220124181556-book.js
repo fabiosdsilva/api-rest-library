@@ -16,6 +16,12 @@ module.exports = {
     release: {
       type: Sequelize.DATE,
     },
+    created_at: {
+      type: Sequelize.DATE,
+    },
+    updated_at: {
+      type: Sequelize.DATE,
+    },
   }),
 
   down: async (queryInterface) => queryInterface.dropTable('books'),
