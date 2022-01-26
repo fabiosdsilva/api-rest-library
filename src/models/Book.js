@@ -22,4 +22,8 @@ export default class Book extends Model {
       },
     }, { sequelize });
   }
+
+  static associate(models) {
+    this.belongsTo(models.Category, { foreignKey: 'category_id' });
+  }
 }

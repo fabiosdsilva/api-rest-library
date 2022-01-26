@@ -1,4 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
+import Book from '../controllers/Book';
 
 export default class Category extends Model {
   static init(sequelize) {
@@ -17,5 +18,9 @@ export default class Category extends Model {
         },
       },
     }, { sequelize });
+  }
+
+  static associate(models) {
+    this.hasMany(models.Book, { foreignKey: 'category_id' });
   }
 }
