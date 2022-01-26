@@ -1,10 +1,12 @@
+require('dotenv').config();
+
 module.exports = {
-  dialect: 'mysql',
-  username: 'root',
-  password: '1234',
-  host: 'localhost',
-  database: 'teste',
-  port: 3306,
+  dialect: process.env.DIALECT,
+  username: process.env.USER_NAME,
+  password: process.env.PASSWORD,
+  host: process.env.HOST_NAME,
+  database: process.env.DATABASE,
+  port: process.env.PORT,
   define: {
     timestamps: true,
     underscored: true,

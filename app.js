@@ -1,7 +1,13 @@
 import express from "express";
-import user from "./src/routes/user";
+
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 import "./src/database";
+
+import user from "./src/routes/user";
+
 
 class App {
   constructor() {
