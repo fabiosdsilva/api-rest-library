@@ -15,5 +15,6 @@ module.exports = {
     'import/no-unresolved': 'off',
     'quote-props': 'off',
     'quotes': 'off',
+    'strict': 'off',
   },
 };

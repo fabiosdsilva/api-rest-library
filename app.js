@@ -6,7 +6,9 @@ dotenv.config();
 
 import "./src/database";
 
+// ROUTES
 import user from "./src/routes/user";
+import category from "./src/routes/category";
 
 
 class App {
@@ -23,6 +25,7 @@ class App {
 
   routes() {
     this.app.use('/user', user);
+    this.app.use('/category', category);
   }
 }
 
