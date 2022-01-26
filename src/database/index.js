@@ -4,9 +4,10 @@ import dbConfig from "../config/database";
 import User from "../models/User";
 import Book from "../models/Book";
 import Photo from "../models/Photo";
+import Category from "../models/Category";
 
 // My models
-const models = [User, Book, Photo];
+const models = [User, Book, Photo, Category];
 class Database {
   constructor() {
     this.init();
