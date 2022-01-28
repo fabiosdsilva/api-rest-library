@@ -1,5 +1,6 @@
 import Book from "../models/Book";
 import Category from "../models/Category";
+import Photo from "./Photo";
 
 class BookController {
   async index(req, res) {
@@ -21,10 +22,14 @@ class BookController {
       if (!title) {
         return res.status(400).json('É preciso informar o título do livro');
       }
+
       const book = await Book.create({ title, pages, release, category_id });
+      if (!book) {
+        return res.status(400).json('error');
+      }
       return res.json(book);
     } catch (error) {
-      return res.status(400).json({ errors: error.errors.map((e) => e.message) });
+      return res.status(400).json(error);
     }
   }
 

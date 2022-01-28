@@ -1,5 +1,4 @@
 import { Model, DataTypes } from 'sequelize';
-import Book from '../controllers/Book';
 
 export default class Category extends Model {
   static init(sequelize) {

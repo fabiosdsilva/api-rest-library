@@ -48,4 +48,8 @@ export default class User extends Model {
       }
     });
   }
+
+  validatorUser(password) {
+    return bcrypt.compare(password, this.password_hash);
+  }
 }

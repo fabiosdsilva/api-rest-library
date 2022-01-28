@@ -11,10 +11,10 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'class-methods-use-this': 'off',
-    'import/no-unresolved': 'off',
-    'quote-props': 'off',
-    'quotes': 'off',
-    'strict': 'off',
+    // 'class-methods-use-this': 'off',
+    // 'import/no-unresolved': 'off',
+    // 'quote-props': 'off',
+    // 'quotes': 'off',
+    // 'strict': 'off',
   },
 };

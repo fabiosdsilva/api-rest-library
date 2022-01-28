@@ -1,5 +1,4 @@
 import { Router } from "express";
-import BookController from '../controllers/Book';
 
 import multer from "multer";
 import multerConfig from "../config/multer";
@@ -10,8 +9,6 @@ const upload = multer(multerConfig);
 
 const routes = Router();
 
-routes.get('/', BookController.index);
-routes.post('/', BookController.store);
-routes.get('/:bookId', BookController.show);
+routes.post('/', upload.single('file'), PhotoController.store);
 
 export default routes;
