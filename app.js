@@ -9,7 +9,8 @@ import "./src/database";
 // ROUTES
 import user from "./src/routes/user";
 import category from "./src/routes/category";
-
+import book from "./src/routes/book";
+import photo from "./src/routes/photo";
 
 class App {
   constructor() {
@@ -26,6 +27,8 @@ class App {
   routes() {
     this.app.use('/user', user);
     this.app.use('/category', category);
+    this.app.use('/book', book);
+    this.app.use('/photo', photo);
   }
 }
 
