@@ -9,11 +9,16 @@ export default async (req, res, next) => {
 
   const [Bearer, token] = authorization.split(" ");
 
-  const payload = await jwt.verify(token, process.env.JWT_TOKEN_SECRET);
+  try {
+    const payload = await jwt.verify(token, process.env.JWT_TOKEN_SECRET);
+    const isToken = await User.findOne({ where: { id: payload.id, email: payload.email } });
+    if (!isToken) {
+      return res.json('usuario invalido');
+    }
 
-  const credential = await User.findOne({ where: { email: token.email } });
-  if (!payload) {
-    return res.status(401).json({ errors: ['Usuário não encontrado'] });
+    req.userId = isToken.id;
+    return next();
+  } catch (error) {
+    return res.status(401).jso({ errors: ['Token inválido'] });
   }
-  return next();
 };
