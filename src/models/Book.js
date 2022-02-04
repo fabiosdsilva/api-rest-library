@@ -20,11 +20,14 @@ export default class Book extends Model {
       release: {
         type: DataTypes.DATE,
       },
+      image_id: {
+        type: DataTypes.INTEGER,
+      },
     }, { sequelize });
   }
 
   static associate(models) {
     this.belongsTo(models.Category, { foreignKey: 'category_id' });
-    this.hasMany(models.Photo, { foreignKey: 'book_id' });
+    this.hasMany(models.Image, { foreignKey: 'image_id' });
   }
 }
