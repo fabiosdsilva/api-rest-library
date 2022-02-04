@@ -11,7 +11,7 @@ import "./src/database";
 import user from "./src/routes/user";
 import category from "./src/routes/category";
 import book from "./src/routes/book";
-import photo from "./src/routes/photo";
+import image from "./src/routes/image";
 import auth from "./src/routes/auth";
 
 class App {
@@ -31,7 +31,7 @@ class App {
     this.app.use('/user', user);
     this.app.use('/category', category);
     this.app.use('/book', book);
-    this.app.use('/photo', photo);
+    this.app.use('/image', image);
     this.app.use('/auth', auth);
   }
 }
