@@ -4,14 +4,16 @@ import BookController from '../controllers/Book';
 import multer from "multer";
 import multerConfig from "../config/multer";
 
-import PhotoController from "../controllers/Photo";
+import ImageController from "../controllers/Image";
+
+import authorization from "../middlewares/authorization";
 
 const upload = multer(multerConfig);
 
 const routes = Router();
 
 routes.get('/', BookController.index);
-routes.post('/', BookController.store);
+routes.post('/', upload.single('file'), BookController.store);
 routes.get('/:bookId', BookController.show);
 
 export default routes;
