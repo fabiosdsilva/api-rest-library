@@ -1,6 +1,6 @@
 import Book from "../models/Book";
 import Category from "../models/Category";
-import Photo from "./Photo";
+import Image from "../models/Image";
 
 class BookController {
   async index(req, res) {
@@ -8,26 +8,9 @@ class BookController {
       const books = await Book.findAll({
         attributes: ['id', 'title', 'pages', 'release'],
         order: [['id', 'DESC']],
-        include: [{ model: Category, attributes: ['name'] }],
+        include: [{ model: Category, attributes: ['name'] }, { model: Image }],
       });
       return res.json(books);
-    } catch (error) {
-      return res.status(400).json(error);
-    }
-  }
-
-  async store(req, res) {
-    try {
-      const { title, pages, release, category_id } = req.body;
-      if (!title) {
-        return res.status(400).json('É preciso informar o título do livro');
-      }
-
-      const book = await Book.create({ title, pages, release, category_id });
-      if (!book) {
-        return res.status(400).json('error');
-      }
-      return res.json(book);
     } catch (error) {
       return res.status(400).json(error);
     }
@@ -37,12 +20,12 @@ class BookController {
     const { bookId } = req.params;
     try {
       if (!bookId) {
-        return res.status(400).json('Usuário não encontrado');
+        return res.status(404).json('Usuário não encontrado');
       }
 
       const book = await Book.findByPk(bookId, {
         attributes: ['id', 'title', 'pages', 'release'],
-        include: [{ model: Category, attributes: ['name'] }],
+        include: [{ model: Category, attributes: ['name'] }, { model: Image }],
       });
       if (!book) {
         return res.status(400).json('Usuário não existe');
@@ -50,6 +33,36 @@ class BookController {
       return res.json(book);
     } catch (error) {
       return res.status(400).json({ errors: error.errors.map((e) => e.message) });
+    }
+  }
+
+  async store(req, res) {
+    try {
+      const {
+        title,
+        pages,
+        release,
+        categoryId,
+      } = req.body;
+      if (!title) {
+        return res.status(400).json('É preciso informar o título do livro');
+      }
+      const { originalname, filename } = req.file;
+
+      const file = await Image.create({ originalname, filename });
+      const book = await Book.create({
+        title,
+        pages,
+        release,
+        category_id: categoryId,
+        image_id: file.id,
+      });
+      if (!book) {
+        return res.status(400).json('error');
+      }
+      return res.json({ book, file });
+    } catch (error) {
+      return res.status(400).json(error);
     }
   }
 
