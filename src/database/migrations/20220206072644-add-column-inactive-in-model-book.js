@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => queryInterface.addColumn('books', 'inactive', {
-    type: Sequelize.BOLLEAN,
+    type: Sequelize.BOOLEAN,
     defaultValue: false,
   }),
   down: async (queryInterface) => queryInterface.removeColumn('books', 'inactive'),
