@@ -20,6 +20,9 @@ export default class Book extends Model {
       release: {
         type: DataTypes.DATE,
       },
+      active: {
+        type: DataTypes.BOOLEAN,
+      },
       image_id: {
         type: DataTypes.INTEGER,
       },
