@@ -3,12 +3,12 @@ import { Router } from "express";
 import multer from "multer";
 import multerConfig from "../config/multer";
 
-import PhotoController from "../controllers/Photo";
+import ImageController from "../controllers/Image";
 
 const upload = multer(multerConfig);
 
 const routes = Router();
 
-routes.post('/', upload.single('file'), PhotoController.store);
+routes.post('/', upload.single('file'), ImageController.store);
 
 export default routes;

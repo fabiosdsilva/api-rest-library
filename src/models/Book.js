@@ -28,6 +28,6 @@ export default class Book extends Model {
 
   static associate(models) {
     this.belongsTo(models.Category, { foreignKey: 'category_id' });
-    this.hasMany(models.Image, { foreignKey: 'image_id' });
+    this.belongsTo(models.Image);
   }
 }

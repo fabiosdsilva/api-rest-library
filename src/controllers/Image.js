@@ -1,10 +1,10 @@
-import Photo from "../models/Photo";
+import Image from "../models/Image";
 
-class PhotoController {
+class ImageController {
   async store(req, res) {
     const { originalname, filename } = req.file;
     try {
-      const file = await Photo.create({ originalname, filename });
+      const file = await Image.create({ originalname, filename });
       console.log(req.file);
       return res.json(file);
     } catch (error) {
@@ -13,4 +13,4 @@ class PhotoController {
   }
 }
 
-export default new PhotoController();
+export default new ImageController();

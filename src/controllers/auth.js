@@ -1,4 +1,4 @@
-import jwt from "jsonweb ";
+import jwt from "jsonwebtoken";
 import User from "../models/User";
 
 class Auth {

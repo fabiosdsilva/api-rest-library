@@ -1,12 +1,12 @@
 'use strict';
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => queryInterface.createTable('photos', {
+  up: async (queryInterface, Sequelize) => queryInterface.createTable('images', {
     id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
-      allowNull: false,
       primaryKey: true,
+      allowNull: false,
     },
     originalname: {
       type: Sequelize.STRING,
@@ -14,12 +14,8 @@ module.exports = {
     filename: {
       type: Sequelize.STRING,
     },
-    book_id: {
-      type: Sequelize.INTEGER,
-      allowNull: true,
-      references: { model: 'books', key: 'id' },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
+    url: {
+      type: Sequelize.STRING,
     },
     created_at: {
       type: Sequelize.DATE,
@@ -28,6 +24,5 @@ module.exports = {
       type: Sequelize.DATE,
     },
   }),
-
-  down: async (queryInterface) => queryInterface.dropTable('photos'),
+  down: async (queryInterface) => queryInterface.dropTable('images'),
 };
