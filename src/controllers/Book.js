@@ -6,7 +6,7 @@ class BookController {
   async index(req, res) {
     try {
       const books = await Book.findAll({
-        attributes: ['id', 'title', 'pages', 'release'],
+        attributes: ['id', 'title', 'pages', 'release', 'category_id', 'active', 'image_id'],
         order: [['id', 'DESC']],
         include: [{ model: Category, attributes: ['name'] }, { model: Image }],
       });
@@ -24,7 +24,7 @@ class BookController {
       }
 
       const book = await Book.findByPk(bookId, {
-        attributes: ['id', 'title', 'pages', 'release'],
+        attributes: ['id', 'title', 'pages', 'release', 'category_id', 'active'],
         include: [{ model: Category, attributes: ['name'] }, { model: Image }],
       });
       if (!book) {
@@ -65,14 +65,6 @@ class BookController {
       return res.status(400).json(error);
     }
   }
-
-  // async update(req, res) {
-
-  // }
-
-  // async delete(req, res) {
-
-  // }
 }
 
 export default new BookController();
