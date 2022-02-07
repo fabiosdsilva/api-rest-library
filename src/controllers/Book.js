@@ -8,7 +8,7 @@ class BookController {
       const books = await Book.findAll({
         attributes: ['id', 'title', 'pages', 'release', 'category_id', 'active', 'image_id'],
         order: [['id', 'DESC']],
-        include: [{ model: Category, attributes: ['name'] }, { model: Image }],
+        include: [{ model: Category, attributes: ['id', 'name'] }, { model: Image }],
       });
       return res.json(books);
     } catch (error) {
