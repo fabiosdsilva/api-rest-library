@@ -58,7 +58,7 @@ class BookController {
         image_id: file.id,
       });
       if (!book) {
-        return res.status(400).json('error');
+        return res.status(400).json({ error: ['Não foi possível inserir'] });
       }
       return res.json({ book, file });
     } catch (error) {
