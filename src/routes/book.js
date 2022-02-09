@@ -13,7 +13,7 @@ const upload = multer(multerConfig);
 const routes = Router();
 
 routes.get('/', BookController.index);
-routes.post('/', upload.single('file'), BookController.store);
+routes.post('/',authorization, upload.single('file'), BookController.store);
 routes.get('/:bookId', BookController.show);
 
 export default routes;
