@@ -48,3 +48,7 @@ None
 	}
 ]
 ```
+### GET /book/1
+This endponit searches for a book according to the id passed in the parameter
+#### Parameters
+Query params: **Id**
