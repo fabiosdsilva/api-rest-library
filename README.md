@@ -3,7 +3,7 @@ This api will be used in my personal project and is only for studies.
 
 ## Start
 ```
-$npm i init
+$npm install
 $npm run dev
 ```
 ## Endpoints
