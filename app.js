@@ -7,7 +7,6 @@ dotenv.config();
 
 import "./src/database";
 
-// ROUTES
 import user from "./src/routes/user";
 import category from "./src/routes/category";
 import book from "./src/routes/book";
