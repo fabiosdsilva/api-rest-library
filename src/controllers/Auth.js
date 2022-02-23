@@ -8,6 +8,9 @@ class Auth {
       return res.status(401).json({ errors: ['Deve ser passado email e senha corretamente'] });
     }
 
+    email.toLowercase();
+    password.toLowercase();
+
     const user = await User.findOne({ where: { email } });
     if (!user) {
       return res.status(401).json({ errors: ['Usuário não existe'] });
