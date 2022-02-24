@@ -9,6 +9,7 @@ class Auth {
     }
 
     email.toLowercase();
+    email.trim();
     password.toLowercase();
 
     const user = await User.findOne({ where: { email } });
