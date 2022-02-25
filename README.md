@@ -11,11 +11,11 @@ $npm run dev
 This endpoint is responsible for **logging** into the api.
 #### Parameters
 Email and Passoword
-#### Exemple
+#### Example
 ```
 {
-	"email": "exemple@exemple.com",
-	"password": "exemple1"
+	"email": "example@example.com",
+	"password": "example1"
 }
 ```
 ### GET /book
@@ -39,7 +39,7 @@ None
 		},
 		"Image": {
 			"id": 1,
-			"originalname": "exemple.jpg",
+			"originalname": "example.jpg",
 			"filename": "1644196162780exmple.jpg",
 			"url": null,
 			"createdAt": "2022-02-07T01:09:22.000Z",
