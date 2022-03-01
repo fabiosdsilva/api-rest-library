@@ -1,11 +1,12 @@
 {
   "name": "teste",
   "version": "1.0.0",
-  "description": "",
+  "description": "This api will be used in my personal project and is only for studies.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "author": "Fabio",
   "license": "ISC",
@@ -17,14 +18,24 @@
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.4",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.14.0",
+    "sequelize": "^6.16.1",
     "sequelize-cli": "^6.4.1"
   },
   "devDependencies": {
     "eslint": "^8.7.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
     "sucrase": "^3.20.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabiosdsilva/api-rest-library.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/fabiosdsilva/api-rest-library/issues"
+  },
+  "homepage": "https://github.com/fabiosdsilva/api-rest-library#readme"
 }
