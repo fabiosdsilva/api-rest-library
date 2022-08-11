@@ -2,6 +2,7 @@
 This api will be used in my personal project and is only for studies.
 
 ## Quick guide
+- Important - **You must have docker and docker-compose installed**. Following the guide install docker in [docker-guide](https://github.com/fabiosdsilva/api-rest-library/blob/master/infrastructure/README.md)
 ```
 $ npm i yarn -g
 $ yarn
@@ -13,6 +14,14 @@ $ sudo apt install make
 $ cd infrastructure/
 $ make up
 ```
+### Starting migrations and Seeds
+To create the database start the migrations.
+First make sure you're in the root of the projec.
+```
+$ yarn sequelize-cli db:migrate
+$ yarn sequelize-cli db:seed:all
+```
+
 ## Endpoints
 ### POST /auth
 This endpoint is responsible for **logging** into the api.
