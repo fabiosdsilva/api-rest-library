@@ -1,10 +1,17 @@
 # Api Rest for my library
 This api will be used in my personal project and is only for studies.
 
-## Start
+## Quick guide
 ```
-$npm install
-$npm run dev
+$ npm i yarn -g
+$ yarn
+```
+## Start
+To start the api you need to build the infrastructure first.
+```
+$ sudo apt install make
+$ cd infrastructure/
+$ make up
 ```
 ## Endpoints
 ### POST /auth
