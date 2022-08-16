@@ -2,6 +2,9 @@
 WAYPOINT_VERSION=0.9.0
 DOCKER_IMAGE=hashicorp/waypoint-odr:${WAYPOINT_VERSION}
 
+waypoint-up:
+	docker run ${DOCKER_IMAGE} -d
+
 waypoint:
 	waypoint install -platform=docker -accept-tos
 
