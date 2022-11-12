@@ -20,7 +20,7 @@ class BookController {
     const { bookId } = req.params;
     try {
       if (!bookId) {
-        return res.status(404).json('Usuário não encontrado');
+        return res.status(404).json('Livro não encontrado');
       }
 
       const book = await Book.findByPk(bookId, {
@@ -28,7 +28,7 @@ class BookController {
         include: [{ model: Category, attributes: ['name'] }, { model: Image }],
       });
       if (!book) {
-        return res.status(400).json('Usuário não existe');
+        return res.status(400).json('Livro não existe');
       }
       return res.json(book);
     } catch (error) {
