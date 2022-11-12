@@ -10,4 +10,8 @@ COPY ../server.js .
 COPY ../src/* ./src/
 RUN apk add yarn
 RUN yarn
+RUN yarn sequelize-cli db:migrate
+RUN yarn sequelize-cli db:seed:all
 RUN yarn dev
+
+EXPOSE 3000

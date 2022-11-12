@@ -1,3 +1,11 @@
+## Node
 node_modules/
+
+## File
 uploads
+
+## Environment
 .env
+
+## Vscode
+.vscode
