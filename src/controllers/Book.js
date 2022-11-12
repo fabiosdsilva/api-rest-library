@@ -1,6 +1,7 @@
 import Book from "../models/Book";
 import Category from "../models/Category";
 import Image from "../models/Image";
+import ImageController from "./Image"
 
 class BookController {
   async index(req, res) {
@@ -44,12 +45,20 @@ class BookController {
         release,
         categoryId,
       } = req.body;
+
+      console.log(req.body)
       if (!title) {
         return res.status(400).json('É preciso informar o título do livro');
       }
-      const { originalname, filename } = req.file;
+      // const { originalname, filename } = req.file;
 
-      const file = await Image.create({ originalname, filename });
+      // const file = await Image.create({ originalname, filename });
+      if (req.file) {
+        ImageController.store()
+      } else {
+        return res.status(400).json('É inserir uma imagem para o livro.');
+      }
+
       const book = await Book.create({
         title,
         pages,
@@ -62,7 +71,7 @@ class BookController {
       }
       return res.json({ book, file });
     } catch (error) {
-      return res.status(400).json(error);
+      return res.status(400).json(`Error: ${error}`);
     }
   }
 }
